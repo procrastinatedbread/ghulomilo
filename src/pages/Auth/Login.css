@@ -1,0 +1,55 @@
+.login-page-main {
+  display: flex;
+  flex-direction: column;
+  width: 35rem;
+  justify-content: center;
+  background-color: rgb(160, 132, 232);
+  box-shadow: 1rem 1rem 1rem 0rem burlywood;
+  height: 48rem;
+  margin: 17rem auto;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+.login-card-email-section,
+.login-card-password-section {
+  display: flex;
+  flex-direction: column;
+  font-size: 2.5rem;
+  padding: 0.5rem;
+}
+h1 {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  color: aliceblue;
+  font-size: 3rem;
+}
+
+input {
+  padding: 1.5rem;
+  width: 25rem;
+  margin: 0.5rem auto;
+}
+
+button {
+  width: fit-content;
+  padding: 1rem 1rem;
+  margin: 0.5rem auto;
+  border-radius: 0.5rem;
+}
+button:hover {
+  padding: 1rem 1.2rem;
+  color: green;
+}
+.sign-up-page-link,
+p {
+  font-size: 1.7rem;
+}
+p {
+  color: aliceblue;
+}
+.sign-up-page-link {
+  text-decoration: none;
+  color: blue;
+}
+.sign-up-page-link:hover {
+  font-size: 1.74rem;
+  color: rgb(13, 13, 210);
+}
