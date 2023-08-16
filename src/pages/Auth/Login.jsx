@@ -1,20 +1,48 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../../contexts/AuthContext";
 import "./Login.css";
 
 const Login = () => {
+  const { loginHandler } = useContext(AuthContext);
+  const [loginDetails, setLoginDetails] = useState({
+    username: "",
+    password: "",
+  });
+
+  const onLoginSubmitHandler = (e) => {
+    e.preventDefault();
+    loginHandler(loginDetails);
+  };
+  const fixedLoginDetails = {
+    username: "adarshbalika",
+    password: "adarshbalika123",
+  };
+
+  const guestLoginHandler = () => {
+    setLoginDetails({
+      username: fixedLoginDetails.username,
+      password: fixedLoginDetails.password,
+    });
+    console.log(fixedLoginDetails.username);
+
+    // navigate("/explore")
+  };
   return (
     <>
       <div className="login-page-main">
         <h1>Login</h1>
-        <form>
+        <form onSubmit={onLoginSubmitHandler}>
           <div className="login-card-email-section">
-            <label htmlFor="email">Email: </label>
+            <label htmlFor="username">Username: </label>
             <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="test@gmail.com"
+              id="username"
+              name="username"
+              placeholder="nikhilchhabra"
+              value={loginDetails.username}
+              onChange={(e) =>
+                setLoginDetails({ ...loginDetails, username: e.target.value })
+              }
               required
             />
           </div>
@@ -26,13 +54,21 @@ const Login = () => {
               name="password"
               placeholder="password"
               required
+              value={loginDetails.password}
+              onChange={(e) =>
+                setLoginDetails({ ...loginDetails, password: e.target.value })
+              }
             />
           </div>
-          <button type="submit" required className="login-link">
+          <button type="submit" className="login-link">
             Login
           </button>
           <br />
-          <button type="submit" required className="login-link">
+          <button
+            type="submit"
+            className="login-link"
+            onClick={guestLoginHandler}
+          >
             Login as guest
           </button>
           <p>

@@ -1,0 +1,113 @@
+.suggestion-list {
+  list-style: none;
+  text-align: center;
+  background-color: rgb(160, 132, 232);
+
+  box-shadow: 1rem 1rem 1rem 0rem burlywood;
+}
+.suggestion-container {
+  border: none;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+  background-color: rgb(160, 132, 232);
+  box-shadow: 1rem 1rem 1rem 0rem burlywood;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 1.5rem;
+  text-align: center;
+  margin-right: 1rem;
+}
+.profile-pic {
+  width: 5rem;
+  border-radius: 50%;
+  height: 5rem;
+  margin-top: 2rem;
+  position: relative;
+}
+/* side-bar */
+
+.side-bar-main {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(160, 132, 232);
+  box-shadow: 1rem 1rem 1rem 0rem burlywood;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  gap: 4rem;
+  height: 100%;
+  text-align: center;
+}
+.side-bar-content {
+  font-size: 2.2rem;
+  font-weight: bold;
+  margin-top: 10%;
+}
+.side-bar-link {
+  text-decoration: none;
+  color: black;
+}
+
+.logout-btn {
+  width: 55%;
+  border: none;
+  background-color: white;
+  font-size: 1.5rem;
+}
+.icon {
+  margin-right: 1rem;
+}
+.sign-out-icon {
+  margin-right: 1.2rem;
+}
+input::placeholder {
+  font: 1rem sans-serif;
+}
+.header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: white;
+  background-color: rgb(160, 132, 232);
+  box-shadow: 1rem 1rem 1rem 0rem burlywood;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  gap: 8rem;
+}
+
+.heading {
+  margin-left: 15rem;
+  font-size: 3rem;
+}
+.search-container {
+  display: flex;
+  border: 0.2px solid;
+  width: 20%;
+  border-radius: 0.7rem;
+  background-color: white;
+  padding: 0.5rem;
+  margin-left: 30rem;
+}
+.search-bar {
+  border: none;
+  outline: none;
+  font-size: 1.5rem;
+}
+.search-bar::placeholder {
+  font-size: 1.5rem;
+}
+
+.search-modal-main {
+  position: absolute;
+  top: 8rem;
+  width: auto;
+  font-size: 1.7rem;
+  color: black;
+  background-color: white;
+  margin-left: 69rem;
+  border: 2px solid black;
+  padding: 1rem;
+}
+
+.side-bar-link:hover {
+  color: greenyellow;
+}
+.logout-btn:hover {
+  color: red;
+  cursor: pointer;
+}
