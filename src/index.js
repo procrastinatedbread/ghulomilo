@@ -1,9 +1,10 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
+import { BrowserRouter as Router } from "react-router-dom";
+
 import { makeServer } from "./server";
-import { BrowserRouter } from "react-router-dom";
 import AuthProvider from "./contexts/AuthContext";
 import FeatureProvider from "./contexts/FeatureContext";
 import UserProvider from "./contexts/UserContext";
@@ -11,9 +12,10 @@ import UserProvider from "./contexts/UserContext";
 // Call make Server
 makeServer();
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <Router>
       <AuthProvider>
         <FeatureProvider>
           <UserProvider>
@@ -21,7 +23,6 @@ ReactDOM.render(
           </UserProvider>
         </FeatureProvider>
       </AuthProvider>
-    </BrowserRouter>
-  </React.StrictMode>,
-  document.getElementById("root")
+    </Router>
+  </React.StrictMode>
 );

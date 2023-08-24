@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import { useState } from "react";
 import { FeatureContext } from "../../contexts/FeatureContext";
-import SideBar from "../../components/SideBar";
-import Suggestions from "../../components/Suggestions";
+import SideBar from "../../components/sideBar";
+import Suggestions from "../../components/suggestions";
 import { AuthContext } from "../../contexts/AuthContext";
 import { UserContext } from "../../contexts/UserContext";
-import "../Features/Features.css";
+import "./features.css";
 import Header from "../../components/Header";
 import { useNavigate } from "react-router";
 
@@ -33,6 +33,18 @@ export default function Home() {
   const [selectedPic, setSelectedPic] = useState();
 
   const socialUser = JSON.parse(localStorage.getItem("loggedInUser"));
+
+  // useEffect(() => {
+  //   getUserPosts(socialUser.username);
+  //   handleSortedPost();
+  // }, [socialUser.username]);
+
+  // const handleEdit = (id) => {
+  //   setEditContent(id);
+  //   setShowEditingData(true);
+  //   console.log("1", id);
+
+  // };
 
   const loggedInUserPosts = posts?.filter(
     (post) => post?.username === socialUser?.username
@@ -126,25 +138,29 @@ export default function Home() {
                 }`}
                 key={post._id}
               >
-                <div className="profile-info">
-                  <img
-                    className="profile-pic"
-                    src={post.profilePic}
-                    alt="profile"
-                  />
-                  <span
-                    style={{ cursor: "pointer" }}
-                    className="p-name"
-                    onClick={() => handleUserPosts(post.username)}
-                  >
-                    <b>
-                      {post.firstName} {post.lastName}
-                    </b>
-                  </span>{" "}
-                  <span>{post.createdAt}</span>
-                </div>
-
-                <p className="post-content">{post.content}</p>
+              
+                  <div className="profile-info">
+                    <img
+                      className="profile-pic"
+                      src={post.profilePic}
+                      alt="profile"
+                    />
+                  
+                    <span style={{cursor:"pointer"}}className="p-name"onClick={()=>handleUserPosts(post.username)} >
+                      <b>
+                        {post.firstName} {post.lastName}
+                      </b>
+                    </span>
+                    {/* <span onClick={() => handleUserPosts(post.username)}>
+                      @{post.username}
+                    </span> */} {" "}
+                    <span>{post.createdAt}</span>
+                  </div>
+                 
+                {/* <div className="side-dots">
+          <svg viewBox="0 0 24 24" aria-hidden="true" class="dots"><g><path d="M3 12c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm9 2c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm7 0c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"></path></g></svg>
+          </div> */}
+                <p>{post.content}</p>
                 <div>
                   {post.mediaUrl && (
                     <img
@@ -189,86 +205,86 @@ export default function Home() {
                     <i className="fa fa-comment"></i>
                     {post.comments?.length > 0 && post.comments?.length}
                   </span>
-                  <div className="owner">
-                    {isOwner && (
-                      <div className="edit-delete">
-                        <span onClick={() => deletePosts(post._id)}>
-                          <i className="fa fa-trash"></i>
-                        </span>
-                        <span
-                          onClick={() => {
-                            setEditContent(post.content);
-                            setShowEditingData(true);
-                            setEditId(post._id);
-                          }}
-                        >
-                          <i className="fa fa-edit"></i>
-                        </span>
-                        {showEditingData && editId === post._id && (
-                          <div className="addPost-mainDiv">
-                            <div className="post-input-main">
-                              <h2>Edit post</h2>
-                              {/* <div className="post-input"> */}
-                              <input
-                                id="input-text"
-                                value={editContent}
-                                onChange={(e) => setEditContent(e.target.value)}
-                              />
-                              {/* </div> */}
-                              <div className="post-input">
-                                <label for="file-upload">
-                                  <input
-                                    id="file-upload"
-                                    type="file"
-                                    accept="image/*"
-                                    onChange={(e) => {
-                                      const file = e.target.files[0];
-                                      const imgUrl = URL.createObjectURL(file);
-                                      setSelectedPic(imgUrl);
-                                    }}
-                                  />
-                                  <span id="svg-icon">
-                                    <svg
-                                      xmlns="http://www.w3.org/2000/svg"
-                                      fill="none"
-                                      viewBox="0 0 24 24"
-                                      stroke-width="1.5"
-                                      stroke="currentColor"
-                                      class="svg-icon"
-                                    >
-                                      <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
-                                      />
-                                    </svg>
-                                  </span>
-                                </label>
-                              </div>
-                              <div className="save-cancel">
-                                <button
-                                  onClick={() =>
-                                    handleEditPost(
-                                      post._id,
-                                      editContent,
-                                      selectedPic
-                                    )
-                                  }
-                                >
-                                  Save
-                                </button>
-                                <button
-                                  className="cancel-btn"
-                                  onClick={() => setShowEditingData(false)}
-                                >
-                                  Cancel
-                                </button>
-                              </div>
+                   <div className="owner">
+                  {isOwner && (
+                    <div className="edit-delete">
+                      <span onClick={() => deletePosts(post._id)}>
+                        <i className="fa fa-trash"></i>
+                      </span>
+                      <span
+                        onClick={() => {
+                          setEditContent(post.content);
+                          setShowEditingData(true);
+                          setEditId(post._id);
+                        }}
+                      >
+                        <i className="fa fa-edit"></i>
+                      </span>
+                      {showEditingData && editId === post._id && (
+                        <div className="addPost-mainDiv">
+                          <div className="post-input-main">
+                            <h2>Edit post</h2>
+                            {/* <div className="post-input"> */}
+                            <input
+                              id="input-text"
+                              value={editContent}
+                              onChange={(e) => setEditContent(e.target.value)}
+                            />
+                            {/* </div> */}
+                            <div className="post-input">
+                              <label for="file-upload">
+                                <input
+                                  id="file-upload"
+                                  type="file"
+                                  accept="image/*"
+                                  onChange={(e) => {
+                                    const file = e.target.files[0];
+                                    const imgUrl = URL.createObjectURL(file);
+                                    setSelectedPic(imgUrl);
+                                  }}
+                                />
+                                <span id="svg-icon">
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="1.5"
+                                    stroke="currentColor"
+                                    class="svg-icon"
+                                  >
+                                    <path
+                                      stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                      d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+                                    />
+                                  </svg>
+                                </span>
+                              </label>
+                            </div>
+                            <div className="save-cancel">
+                              <button
+                                onClick={() =>
+                                  handleEditPost(
+                                    post._id,
+                                    editContent,
+                                    selectedPic
+                                  )
+                                }
+                              >
+                                Save
+                              </button>
+                              <button
+                                className="cancel-btn"
+                                onClick={() => setShowEditingData(false)}
+                              >
+                                Cancel
+                              </button>
                             </div>
                           </div>
-                        )}
-                      </div>
-                    )}
+                        </div>
+                      )}
+                    </div>
+                  )}
                   </div>
                 </div>
               </li>

@@ -4,44 +4,41 @@ import { toast } from "react-toastify";
 
 export const AuthContext = createContext();
 
-const initialToken = localStorage.getItem("token") || "";
 
+const initialToken = localStorage.getItem("token") || "";
+ 
 const initialUser = JSON.parse(localStorage.getItem("loggedInUser")) || null;
-const initialState = { encodedToken: initialToken };
+const initialState = { encodedToken: initialToken};
 
 const authReducer = (state, action) => {
   switch (action.type) {
     case "AUTH_SUCCESS":
       return { ...state, encodedToken: action.payload };
-    case "LOGOUT":
-      return { ...state, encodedToken: "" };
+      case "LOGOUT":
+        return {...state,encodedToken:""}
   }
 };
 export default function AuthProvider({ children }) {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const [user, setUser] = useState(initialUser);
+  
+  const [state, dispatch] = useReducer(authReducer,initialState);
+ 
 
-  const [state, dispatch] = useReducer(authReducer, initialState);
-
-  const signupHandler = async ({ firstName, lastName, username, password }) => {
+  const signupHandler = async ({ firstName, lastName, username, password, }) => {
     try {
       const response = await fetch("/api/auth/signup", {
         method: "POST",
-        body: JSON.stringify({
-          firstName,
-          lastName,
-          username,
-          password,
-          profilePic:
-            "https://tse1.mm.bing.net/th?id=OIP.LSDaZCxRd9oeYsgbJXDp7AHaEK&pid=Api&P=0&h=180",
-        }),
+        body: JSON.stringify({ firstName, lastName, username, password,profilePic:"https://tse1.mm.bing.net/th?id=OIP.LSDaZCxRd9oeYsgbJXDp7AHaEK&pid=Api&P=0&h=180" }),
       });
       if (response.status === 201) {
         const data = await response.json();
         // console.log(data);
         dispatch({ type: "AUTH_SUCCESS", payload: data.encodedToken });
-        navigate("/login");
+        navigate("/login")
+       
+
       }
     } catch (e) {
       console.error(e);
@@ -57,39 +54,29 @@ export default function AuthProvider({ children }) {
         const data = await response.json();
         dispatch({ type: "AUTH_SUCCESS", payload: data.encodedToken });
 
-        const loggedInUser = data.foundUser;
-        localStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
+        const loggedInUser = data.foundUser
+          localStorage.setItem("loggedInUser",JSON.stringify(loggedInUser))        
         setUser(loggedInUser);
-
+        
         localStorage.setItem("token", data.encodedToken);
 
-        navigate("/");
-        toast.success("Logged in successfully");
+        navigate("/")
+        toast.success("Logged in successfully")
       }
     } catch (e) {
       console.error(e);
     }
   };
-  const isLoggedIn = state.encodedToken.length !== 0;
+const isLoggedIn = state.encodedToken.length!==0
 
-  const logoutHandler = () => {
+  const logoutHandler = ()=>{
     localStorage.removeItem("token");
-    dispatch({ type: "LOGOUT" });
-    navigate("/login");
-  };
+    dispatch({type:"LOGOUT"})
+    navigate("/login")
+  }
 
   return (
-    <AuthContext.Provider
-      value={{
-        state,
-        signupHandler,
-        loginHandler,
-        user,
-        logoutHandler,
-        isLoggedIn,
-        setUser,
-      }}
-    >
+    <AuthContext.Provider value={{ state,signupHandler, loginHandler, user,logoutHandler,isLoggedIn,setUser }}>
       {children}
     </AuthContext.Provider>
   );

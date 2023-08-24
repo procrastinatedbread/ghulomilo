@@ -2,9 +2,8 @@ import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import { AuthContext } from "../../contexts/AuthContext";
 import { FeatureContext } from "../../contexts/FeatureContext";
-import SideBar from "../../components/SideBar";
-import Suggestions from "../../components/Suggestions";
-import "../Features/Features.css";
+import SideBar from "../../components/sideBar";
+import Suggestions from "../../components/suggestions";
 
 export default function Bookmark() {
   const { user } = useContext(AuthContext);
@@ -23,9 +22,7 @@ export default function Bookmark() {
 
       <ul className="post-card">
         <h1 style={{ textAlign: "center" }}> My Bookmarks</h1>
-        {user?.bookmarks.length === 0 && (
-          <h2 style={{ textAlign: "center" }}>No bookmarks yet</h2>
-        )}
+        {user?.bookmarks.length === 0 && <h2 style={{ textAlign: "center" }}>No bookmarks yet</h2>}
         {user?.bookmarks.map((bookmark) => {
           const post = posts.find(
             ({ content }) => content === bookmark.content
@@ -92,10 +89,11 @@ export default function Bookmark() {
           );
         })}
       </ul>
-
+     
       <div>
         <Suggestions />
       </div>
+     
     </div>
   );
 }

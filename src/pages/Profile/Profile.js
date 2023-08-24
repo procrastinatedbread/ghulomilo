@@ -5,9 +5,8 @@ import { AuthContext } from "../../contexts/AuthContext";
 import { UserContext } from "../../contexts/UserContext";
 import ProfileDetailsCard from "./ProfileDetailsCard";
 import Header from "../../components/Header";
-import Suggestions from "../../components/Suggestions";
-import SideBar from "../../components/SideBar";
-import "./Profile.css";
+import Suggestions from "../../components/suggestions";
+import SideBar from "../../components/sideBar";
 
 export default function Profile() {
   const { username } = useParams();
@@ -27,18 +26,23 @@ export default function Profile() {
 
   const loggedInUserPosts = posts.filter((post) => post.username === username);
   //  console.log(user.profilePic)
-  console.log(loggedInUserPosts);
+   console.log(loggedInUserPosts)
 
   const [showProfileDetails, setShowProfileDetails] = useState(false);
 
-  console.log(posts);
+  // console.log(state.users);
+   console.log(posts);
 
   const userProfile = state.users.find((user) => user.username === username);
+  // console.log(userProfile);
+
+  //  const suggestedUser = userPosts.find(({username})=>username===username)
+  //  console.log(suggestedUser)
 
   const isFollowed = user?.following?.some(
     ({ username }) => username === userProfile?.username
   );
-
+  // console.log(isFollowed)
   const isBookmarked = (postId) =>
     user?.bookmarks?.find((bookmark) => bookmark._id === postId);
 
@@ -50,35 +54,30 @@ export default function Profile() {
         <div>
           <SideBar />
         </div>
-        <div>
+        <div >
           {username === user?.username ? (
             <div className="profile">
               <img className="profile-pic" src={user?.profilePic} />
               <span>{user?.fullname}</span>
-              <p className="user-bio" style={{ color: "black" }}>
-                {user?.bio}
-              </p>
+              <p className="user-bio">{user?.bio}</p>
               <a href={user?.website} target="_blank">
                 {user?.website}
               </a>
-              <p style={{ color: "black" }}>
-                <span>Post:{loggedInUserPosts.length}</span>{" "}
+              <p>
+                <span>Post:{loggedInUserPosts.length}</span>
                 <span>Followers:{user?.followers.length}</span>{" "}
                 <span>Following:{user?.following.length}</span>
               </p>
-              <button
-                className="edit-profile-btn"
-                onClick={() => setShowProfileDetails(true)}
-              >
+              <button className="edit-profile-btn" onClick={()=>setShowProfileDetails(true)}>
                 Edit
               </button>
               <div>
-                {showProfileDetails && (
-                  <ProfileDetailsCard
-                    // showProfileDetails={showProfileDetails}
-                    setShowProfileDetails={setShowProfileDetails}
-                  />
-                )}
+              {showProfileDetails && (
+                <ProfileDetailsCard
+                  // showProfileDetails={showProfileDetails}
+                  setShowProfileDetails={setShowProfileDetails}
+                />
+              )}
               </div>
             </div>
           ) : (
@@ -141,7 +140,7 @@ export default function Profile() {
                       width="300px"
                     />
                   )}
-                  <hr />
+                  <hr/>
                   <div className="rest-btns">
                     {isBookmarked(_id) ? (
                       <span

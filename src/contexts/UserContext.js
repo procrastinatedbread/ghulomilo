@@ -22,13 +22,13 @@ const userReducer = (state, action) => {
           user._id === action.payload._id ? action.payload : user
         ),
       };
-    case "UNFOLLOW_USER":
-      return {
-        ...state,
-        users: state.users.map((user) =>
-          user._id === action.payload._id ? action.payload : user
-        ),
-      };
+      case "UNFOLLOW_USER":
+        return {
+          ...state,
+          users: state.users.map((user) =>
+            user._id === action.payload._id ? action.payload : user
+          ),
+        }
     default:
       return state;
   }
@@ -41,9 +41,9 @@ export default function UserProvider({ children }) {
   };
   const [state, dispatch] = useReducer(userReducer, initialState);
 
-  const { user, setUser } = useContext(AuthContext);
+  const { user, setUser, } = useContext(AuthContext);
   const [searchText, setSearchText] = useState("");
-  const { setUserPosts, setPosts } = useContext(FeatureContext);
+  const { setUserPosts,setPosts } = useContext(FeatureContext);
 
   const socialUser = JSON.parse(localStorage.getItem("loggedInUser"));
 
@@ -77,7 +77,7 @@ export default function UserProvider({ children }) {
 
       if (response.status === 200) {
         const data = await response.json();
-        toast.success("User followed");
+        toast.success("User followed")
         // setUser(data.user);
         const followedUser = data.followUser;
 
@@ -124,7 +124,7 @@ export default function UserProvider({ children }) {
       });
 
       const data = await response.json();
-      toast.success("Added to bookmarks");
+      toast.success("Added to bookmarks")
       dispatch({ type: "ADD_BOOKMARK_POSTS", payload: data.bookmarks });
       setUser((user) => ({ ...user, bookmarks: data.bookmarks }));
     } catch (e) {
@@ -143,7 +143,7 @@ export default function UserProvider({ children }) {
 
       if (response.status === 200) {
         const data = await response.json();
-        toast.success("Removed from bookmarks");
+        toast.success("Removed from bookmarks")
 
         // dispatch({ type: "REMOVE_BOOKMARK_POSTS", payload:data.bookmarks});
         setUser((user) => ({ ...user, bookmarks: data.bookmarks }));
@@ -176,16 +176,17 @@ export default function UserProvider({ children }) {
         //     post.username === data.user.username
         //       ? { ...post, profilePic: data.user.profilePic }
         //       : post
-        //   )
+        //   )  
         // );
         // setPosts((posts) =>
         //   posts.map((post) =>
         //     post.username === data.user.username
         //       ? { ...post, profilePic: data.user.profilePic }
         //       : post
-
-        //   )
+              
+        //   )  
         // );
+        
       }
     } catch (e) {
       console.error(e);
@@ -194,16 +195,16 @@ export default function UserProvider({ children }) {
 
   const allUsers = state.users;
   const myFollowing = user?.following;
-  console.log(user);
+  console.log(user)
 
-  const suggestedUsers = allUsers
-    .filter(({ username }) => username !== user?.username)
-    .filter(
-      (user) =>
-        !myFollowing?.some((followedUser) => followedUser._id === user._id)
-    );
+const suggestedUsers = allUsers
+  .filter(({ username }) => username !== user?.username)
+  .filter(
+    (user) =>
+      !myFollowing?.some((followedUser) => followedUser._id === user._id)
+  );
 
-  console.log(suggestedUsers);
+console.log(suggestedUsers)
   return (
     <UserContext.Provider
       value={{
@@ -216,7 +217,8 @@ export default function UserProvider({ children }) {
         handleFollow,
         handleUnFollow,
         editUserInfo,
-        suggestedUsers,
+        suggestedUsers
+        
       }}
     >
       {children}

@@ -7,16 +7,17 @@ import { useState } from "react";
 export default function Header() {
   const { setSearchText, searchText } = useContext(UserContext);
   const { user } = useContext(AuthContext);
-  const [isSearching, setIsSearching] = useState(false);
+  const[isSearching,setIsSearching] = useState(false)
 
   const handleCancelSearch = () => {
+    
     setIsSearching(false);
     setSearchText("");
   };
   return (
     <div>
       <div className="header">
-        <h2 className="heading">Ghulo-milo</h2>
+        <h2 className="heading">Friendify</h2>
         <div className="search-container">
           <svg
             width="19"
@@ -33,13 +34,15 @@ export default function Header() {
           <input
             placeholder="search"
             className="search-bar"
-            onChange={(e) => {
-              setSearchText(e.target.value);
-              setIsSearching(true);
+            onChange={(e) => {setSearchText(e.target.value)
+            setIsSearching(true)
             }}
           />
           {searchText && (
-            <div className="cancel-icon" onClick={handleCancelSearch}>
+            <div
+              className="cancel-icon"
+              onClick={handleCancelSearch}
+            >
               <svg
                 width="12"
                 height="12"
@@ -54,8 +57,10 @@ export default function Header() {
               </svg>
             </div>
           )}
-        </div>
-        {searchText && isSearching && <SearchModal searchText={searchText} />}
+          </div>
+          {searchText && isSearching&&<SearchModal searchText={searchText} />}
+        
+      
       </div>
     </div>
   );

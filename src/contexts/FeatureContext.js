@@ -10,9 +10,11 @@ export default function FeatureProvider({ children }) {
   const [posts, setPosts] = useState([]);
   const [userPosts, setUserPosts] = useState([]);
   const [newPost, setNewPost] = useState("");
-  const [editingPost, setEditingPost] = useState(null);
+  const [editingPost,setEditingPost] = useState(null)
   const [likedPosts, setLikedPosts] = useState([]);
   const { user } = useContext(AuthContext);
+
+  
 
   const fetchAllPosts = async () => {
     try {
@@ -53,12 +55,13 @@ export default function FeatureProvider({ children }) {
         const data = await response.json();
         console.log(data);
 
-        setPosts(data.posts);
+         setPosts(data.posts);
       }
     } catch (e) {
       console.error(e);
     }
   };
+
 
   const deletePosts = async (postId) => {
     const token = localStorage.getItem("token");
@@ -70,7 +73,7 @@ export default function FeatureProvider({ children }) {
 
       if (response.status === 200 || response.status === 201) {
         const data = await response.json();
-        toast.success("post deleted");
+        toast.success("post deleted")
         console.log(data);
         setPosts(data.posts);
       }
@@ -79,12 +82,12 @@ export default function FeatureProvider({ children }) {
     }
   };
 
-  const EditPost = async (postId, editText, editPic, editProfilePic) => {
-    const postData = {
-      content: editText,
-      mediaUrl: editPic,
-      profilePic: editProfilePic,
-    };
+  const EditPost = async (postId,editText,editPic,editProfilePic) => {
+    const postData={
+      content:editText,
+      mediaUrl:editPic,
+       profilePic:editProfilePic
+    }
     try {
       const token = localStorage.getItem("token");
       const response = await fetch(`/api/posts/edit/${postId}`, {
@@ -94,7 +97,7 @@ export default function FeatureProvider({ children }) {
       });
 
       const data = await response.json();
-      setPosts(data.posts);
+      setPosts(data.posts)
 
       console.log(data);
     } catch (error) {
@@ -108,8 +111,8 @@ export default function FeatureProvider({ children }) {
       // console.log(response);
       if (response.status === 200) {
         const data = await response.json();
-        setUserPosts(data.posts);
-        setPosts(data.posts);
+        setUserPosts(data.posts)
+         setPosts(data.posts);
         console.log(data);
       }
     } catch (e) {
@@ -131,6 +134,7 @@ export default function FeatureProvider({ children }) {
       // console.log(response);
       if (response.status === 200 || response.status === 201) {
         const data = await response.json();
+        
 
         // console.log(data.posts);
         setPosts(data.posts);
@@ -140,7 +144,7 @@ export default function FeatureProvider({ children }) {
       console.error(e);
     }
   };
-
+ 
   const getUnLikedPosts = async (postId) => {
     const token = localStorage.getItem("token");
     try {
@@ -178,9 +182,7 @@ export default function FeatureProvider({ children }) {
         addNewPost,
         newPost,
         deletePosts,
-        editingPost,
-        setEditingPost,
-        EditPost,
+        editingPost,setEditingPost,EditPost
       }}
     >
       {children}

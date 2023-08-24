@@ -10,14 +10,13 @@ export const posts = [
   {
     _id: uuid(),
     content: "Exploring new places",
-    mediaUrl:
-      "https://1.bp.blogspot.com/-MiUcyHifn1U/XrvfpVzmI7I/AAAAAAAAAjc/eYazSDwPLasqFXYX7bx_yJUipkZ8Ci5IQCLcBGAsYHQ/s1600/tea-gardens-munnar.jpg",
+    mediaUrl:"https://1.bp.blogspot.com/-MiUcyHifn1U/XrvfpVzmI7I/AAAAAAAAAjc/eYazSDwPLasqFXYX7bx_yJUipkZ8Ci5IQCLcBGAsYHQ/s1600/tea-gardens-munnar.jpg",
     likes: {
       likeCount: 24,
       likedBy: [],
       dislikedBy: [],
     },
-    bookmarks: [],
+    bookmarks:[],
     comments: [
       {
         _id: uuid(),
@@ -32,8 +31,7 @@ export const posts = [
     firstName: "Adarsh",
     lastName: "Balika",
     username: "adarshbalika",
-    profilePic:
-      "https://i.pinimg.com/550x/41/01/1a/41011a92dfc518841f1ea4439eff4f21.jpg",
+    profilePic:"https://i.pinimg.com/550x/41/01/1a/41011a92dfc518841f1ea4439eff4f21.jpg",
     createdAt: "June 22, 2023",
     updatedAt: formatDate(),
   },
@@ -41,35 +39,34 @@ export const posts = [
   {
     _id: uuid(),
     content: "Enjoying a beautiful sunset!",
-    mediaUrl:
-      "https://tse4.mm.bing.net/th?id=OIP.IwYFjR9kEWVWqXq4g1jpOAHaEK&pid=Api&P=0&h=180",
+    mediaUrl:"https://tse4.mm.bing.net/th?id=OIP.IwYFjR9kEWVWqXq4g1jpOAHaEK&pid=Api&P=0&h=180",
     likes: {
       likeCount: 3,
       likedBy: [],
       dislikedBy: [],
     },
-    bookmarks: [],
+    bookmarks:[],
     comments: [],
     firstName: "Shubham",
     lastName: "Soni",
     username: "shubhamsoni",
-    profilePic: "https://wallpapercave.com/wp/wp2058252.jpg",
+    profilePic:"https://wallpapercave.com/wp/wp2058252.jpg",
     // createdAt: "2023-02-25T10:30:33+05:30",
-    createdAt: "February 25, 2023",
+    createdAt:"February 25, 2023",
     updatedAt: formatDate(),
   },
 
   {
     _id: uuid(),
     content: "Delicious food at my favorite restaurant!",
-    mediaUrl: "https://wallpapercave.com/wp/wp3724331.jpg",
+    mediaUrl:"https://wallpapercave.com/wp/wp3724331.jpg",
     likes: {
       likeCount: 5,
       likedBy: [],
       dislikedBy: [],
     },
-
-    bookmarks: [],
+   
+    bookmarks:[],
     comments: [
       {
         _id: uuid(),
@@ -84,13 +81,12 @@ export const posts = [
     firstName: "Raima",
     lastName: "Gupta",
     username: "raimagupta",
-    profilePic:
-      "https://4.bp.blogspot.com/-LQKY1YlzhOc/Th56wgEJiBI/AAAAAAAAETw/2ZcwvyZvR1U/s1600/most-beautiful-little-girl-in-the-world.JPG",
+    profilePic:"https://4.bp.blogspot.com/-LQKY1YlzhOc/Th56wgEJiBI/AAAAAAAAETw/2ZcwvyZvR1U/s1600/most-beautiful-little-girl-in-the-world.JPG",
     // createdAt: "2023-03-28T21:00:15+05:30",
-    createdAt: "March 28, 2023",
+    createdAt:"March 28, 2023",
     updatedAt: formatDate(),
   },
-
+  
   {
     _id: uuid(),
     content: "Excited for the weekend getaway!",
@@ -99,7 +95,7 @@ export const posts = [
       likedBy: [],
       dislikedBy: [],
     },
-    bookmarks: [],
+    bookmarks:[],
     comments: [
       {
         _id: uuid(),
@@ -114,22 +110,20 @@ export const posts = [
     firstName: "Adarsh",
     lastName: "Balika",
     username: "adarshbalika",
-    profilePic:
-      "https://i.pinimg.com/550x/41/01/1a/41011a92dfc518841f1ea4439eff4f21.jpg",
+    profilePic:"https://i.pinimg.com/550x/41/01/1a/41011a92dfc518841f1ea4439eff4f21.jpg",
     // createdAt: "2023-06-13T09:00:10+05:30",
-    createdAt: "June 13, 2023",
+    createdAt:"June 13, 2023",
     updatedAt: formatDate(),
   },
   {
     _id: uuid(),
-    content:
-      "The best way to predict your future is to create it! Love this quote by Ibrahim Lincon",
+    content: "The best way to predict your future is to create it! Love this quote by Ibrahim Lincon",
     likes: {
       likeCount: 1,
       likedBy: [],
       dislikedBy: [],
     },
-    bookmarks: [],
+    bookmarks:[],
     comments: [
       {
         _id: uuid(),
@@ -144,10 +138,9 @@ export const posts = [
     firstName: "Mahima",
     lastName: "Gupta",
     username: "mahimagupta",
-    profilePic:
-      "https://w0.peakpx.com/wallpaper/417/640/HD-wallpaper-cute-adorable-girl-baby-is-looking-up-wearing-purple-dress-cute.jpg",
+    profilePic:"https://w0.peakpx.com/wallpaper/417/640/HD-wallpaper-cute-adorable-girl-baby-is-looking-up-wearing-purple-dress-cute.jpg",
     // createdAt: "2023-02-24T22:30:10+05:30",
-    createdAt: "February 24, 2023",
+    createdAt:"February 24, 2023",
     updatedAt: formatDate(),
   },
   {
@@ -158,14 +151,14 @@ export const posts = [
       likedBy: [],
       dislikedBy: [],
     },
-    bookmarks: [],
+    bookmarks:[],
     comments: [],
     firstName: "John",
     lastName: "Doe",
     username: "johndoe",
-    profilePic: "https://wallpapercave.com/wp/wp2525371.jpg",
+    profilePic:"https://wallpapercave.com/wp/wp2525371.jpg",
     // createdAt: "2023-04-21T23:00:14+05:30",
-    createdAt: "April 21, 2023",
+    createdAt:"April 21, 2023",
     updatedAt: formatDate(),
   },
   {
@@ -176,7 +169,7 @@ export const posts = [
       likedBy: [],
       dislikedBy: [],
     },
-    bookmarks: [],
+    bookmarks:[],
     comments: [
       {
         _id: uuid(),
@@ -191,22 +184,21 @@ export const posts = [
     firstName: "John",
     lastName: "Doe",
     username: "johndoe",
-    profilePic: "https://wallpapercave.com/wp/wp2525371.jpg",
+    profilePic:"https://wallpapercave.com/wp/wp2525371.jpg",
     // createdAt: "2023-03-17T10:45:00+05:30",
-    createdAt: "March 17, 2023",
+    createdAt:"March 17, 2023",
     updatedAt: formatDate(),
   },
   {
     _id: uuid(),
     content: "Trying out a new recipe. Finger-licking good!",
-    mediaUrl:
-      "https://www.teacher-chef.com/wp-content/uploads/2012/01/1-5-salsa-made-from-canned-tomato1.jpg",
+    mediaUrl:"https://www.teacher-chef.com/wp-content/uploads/2012/01/1-5-salsa-made-from-canned-tomato1.jpg",
     likes: {
       likeCount: 19,
       likedBy: [],
       dislikedBy: [],
     },
-    bookmarks: [],
+    bookmarks:[],
     comments: [
       {
         _id: uuid(),
@@ -221,10 +213,9 @@ export const posts = [
     firstName: "Adarsh",
     lastName: "Balika",
     username: "adarshbalika",
-    profilePic:
-      "https://i.pinimg.com/550x/41/01/1a/41011a92dfc518841f1ea4439eff4f21.jpg",
-
-    createdAt: "May 05, 2023",
+    profilePic:"https://i.pinimg.com/550x/41/01/1a/41011a92dfc518841f1ea4439eff4f21.jpg",
+    
+     createdAt:"May 05, 2023",
     // createdAt: "2023-05-05T18:45:00+05:30",
     updatedAt: formatDate(),
   },
@@ -236,14 +227,14 @@ export const posts = [
       likedBy: [],
       dislikedBy: [],
     },
-    bookmarks: [],
+    bookmarks:[],
     comments: [],
     firstName: "Shubham",
     lastName: "Soni",
     username: "shubhamsoni",
-    profilePic: "https://wallpapercave.com/wp/wp2058252.jpg",
+    profilePic:"https://wallpapercave.com/wp/wp2058252.jpg",
     // createdAt: "2023-04-08T17:05:04+05:30",
-    createdAt: "April 08, 2023",
+    createdAt:"April 08, 2023",
     updatedAt: formatDate(),
   },
   {
@@ -254,15 +245,14 @@ export const posts = [
       likedBy: [],
       dislikedBy: [],
     },
-    bookmarks: [],
+    bookmarks:[],
     comments: [],
     firstName: "Adarsh",
     lastName: "Balika",
     username: "adarshbalika",
-    profilePic:
-      "https://i.pinimg.com/550x/41/01/1a/41011a92dfc518841f1ea4439eff4f21.jpg",
+    profilePic:"https://i.pinimg.com/550x/41/01/1a/41011a92dfc518841f1ea4439eff4f21.jpg",
     // createdAt: "2023-06-10T07:15:10+05:30",
-    createdAt: "June 10, 2023",
+    createdAt:"June 10, 2023",
     updatedAt: formatDate(),
   },
   {
@@ -274,14 +264,13 @@ export const posts = [
       likedBy: [],
       dislikedBy: [],
     },
-    bookmarks: [],
+    bookmarks:[],
     comments: [],
     firstName: "Raima",
     lastName: "Gupta",
     username: "raimagupta",
-    profilePic:
-      "https://4.bp.blogspot.com/-LQKY1YlzhOc/Th56wgEJiBI/AAAAAAAAETw/2ZcwvyZvR1U/s1600/most-beautiful-little-girl-in-the-world.JPG",
-    createdAt: "March 11, 2023",
+    profilePic:"https://4.bp.blogspot.com/-LQKY1YlzhOc/Th56wgEJiBI/AAAAAAAAETw/2ZcwvyZvR1U/s1600/most-beautiful-little-girl-in-the-world.JPG",
+    createdAt:"March 11, 2023",
     // createdAt: "2023-03-11T09:30:18+05:30",
     updatedAt: formatDate(),
   },
@@ -289,42 +278,39 @@ export const posts = [
     _id: uuid(),
     content:
       "Wow, the weather is absolutely gorgeous today! Its a perfect time to go outside and enjoy it",
-    mediaUrl: "https://jooinn.com/images/cloudy-1.jpg",
-    likes: {
+    mediaUrl:"https://jooinn.com/images/cloudy-1.jpg",
+      likes: {
       likeCount: 17,
       likedBy: [],
       dislikedBy: [],
     },
     comments: [],
-    bookmarks: [],
+    bookmarks:[],
     firstName: "Shubham",
     lastName: "Soni",
     username: "shubhamsoni",
-    profilePic: "https://wallpapercave.com/wp/wp2058252.jpg",
+    profilePic:"https://wallpapercave.com/wp/wp2058252.jpg",
     // createdAt: "2023-03-15T09:45:13+05:30",
-    createdAt: "March 15, 2023",
+    createdAt:"March 15, 2023",
     updatedAt: formatDate(),
   },
   {
     _id: uuid(),
-    content:
-      " Just picked up this captivating novel that has been on my reading list for a while.If you've read this one, I'd love to hear your thoughts",
-
-    mediaUrl:
-      "https://www.leafmarks.com/uploads/9/8/4/9/98493490/hamlet-by-william-shakespeare_orig.jpg",
-    likes: {
+    content:" Just picked up this captivating novel that has been on my reading list for a while.If you've read this one, I'd love to hear your thoughts",
+      
+    mediaUrl:"https://www.leafmarks.com/uploads/9/8/4/9/98493490/hamlet-by-william-shakespeare_orig.jpg",
+      likes: {
       likeCount: 16,
       likedBy: [],
       dislikedBy: [],
     },
     comments: [],
-    bookmarks: [],
+    bookmarks:[],
     firstName: "Mahima",
     lastName: "Gupta",
     username: "mahimagupta",
-    profilePic:
-      "https://w0.peakpx.com/wallpaper/417/640/HD-wallpaper-cute-adorable-girl-baby-is-looking-up-wearing-purple-dress-cute.jpg",
-    createdAt: "May 02, 2023",
+    profilePic:"https://w0.peakpx.com/wallpaper/417/640/HD-wallpaper-cute-adorable-girl-baby-is-looking-up-wearing-purple-dress-cute.jpg",
+    createdAt:"May 02, 2023",
     // createdAt: "2023-05-16T19:00:13+05:30",
     updatedAt: formatDate(),
   },
