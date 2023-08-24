@@ -50,12 +50,11 @@ export const posts = [
     },
     bookmarks: [],
     comments: [],
-    firstName: "Harsh",
-    lastName: "Rai",
-    username: "abeharzzh",
+    firstName: "Adarsh",
+    lastName: "Balika",
+    username: "adarshbalika",
     profilePic:
-      "https://static.toiimg.com/photo/imgsize-75412,msid-101143981/101143981.jpg",
-
+      "https://i.pinimg.com/550x/41/01/1a/41011a92dfc518841f1ea4439eff4f21.jpg",
     createdAt: "February 25, 2023",
     updatedAt: formatDate(),
   },
@@ -142,12 +141,11 @@ export const posts = [
         },
       },
     ],
-    firstName: "Harsh",
-    lastName: "Rai",
-    username: "abeharzzh",
+    firstName: "Adarsh",
+    lastName: "Balika",
+    username: "adarshbalika",
     profilePic:
-      "https://static.toiimg.com/photo/imgsize-75412,msid-101143981/101143981.jpg",
-
+      "https://i.pinimg.com/550x/41/01/1a/41011a92dfc518841f1ea4439eff4f21.jpg",
     createdAt: "February 24, 2023",
     updatedAt: formatDate(),
   },
