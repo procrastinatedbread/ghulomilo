@@ -3,10 +3,10 @@ import { UserContext } from "../contexts/UserContext";
 import { AuthContext } from "../contexts/AuthContext";
 import "./components.css";
 export default function Suggestions() {
-  const { state, handleFollow,suggestedUsers } = useContext(UserContext);
+  const { state, handleFollow, suggestedUsers } = useContext(UserContext);
   const { user: loggedInUser } = useContext(AuthContext);
 
- console.log(suggestedUsers)
+  console.log(suggestedUsers);
 
   // const allUsers = state.users;
   // const myFollowing = loggedInUser.following;
@@ -23,7 +23,7 @@ export default function Suggestions() {
       <h2>SUGGESTED USERS</h2>
       {suggestedUsers.map(({ _id, fullname, username, profilePic }) => (
         <div className="suggestion-list" key={_id}>
-          <img className="profile-pic" src={profilePic} />
+          <img className="profile-pic" src={profilePic} alt="user" />
           <div className="suggested-user-details">
             <span>@{username}</span>
           </div>
