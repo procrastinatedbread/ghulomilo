@@ -25,24 +25,17 @@ export default function Profile() {
     useContext(FeatureContext);
 
   const loggedInUserPosts = posts.filter((post) => post.username === username);
-  //  console.log(user.profilePic)
-   console.log(loggedInUserPosts)
+  console.log(loggedInUserPosts);
 
   const [showProfileDetails, setShowProfileDetails] = useState(false);
 
-  // console.log(state.users);
-   console.log(posts);
+  console.log(posts);
 
   const userProfile = state.users.find((user) => user.username === username);
-  // console.log(userProfile);
-
-  //  const suggestedUser = userPosts.find(({username})=>username===username)
-  //  console.log(suggestedUser)
 
   const isFollowed = user?.following?.some(
     ({ username }) => username === userProfile?.username
   );
-  // console.log(isFollowed)
   const isBookmarked = (postId) =>
     user?.bookmarks?.find((bookmark) => bookmark._id === postId);
 
@@ -54,7 +47,7 @@ export default function Profile() {
         <div>
           <SideBar />
         </div>
-        <div >
+        <div>
           {username === user?.username ? (
             <div className="profile">
               <img className="profile-pic" src={user?.profilePic} />
@@ -64,20 +57,22 @@ export default function Profile() {
                 {user?.website}
               </a>
               <p>
-                <span>Post:{loggedInUserPosts.length}</span>
-                <span>Followers:{user?.followers.length}</span>{" "}
-                <span>Following:{user?.following.length}</span>
+                <span>Post: {loggedInUserPosts.length} </span>
+                <span>Followers: {user?.followers.length}</span>{" "}
+                <span>Following: {user?.following.length}</span>
               </p>
-              <button className="edit-profile-btn" onClick={()=>setShowProfileDetails(true)}>
+              <button
+                className="edit-profile-btn"
+                onClick={() => setShowProfileDetails(true)}
+              >
                 Edit
               </button>
               <div>
-              {showProfileDetails && (
-                <ProfileDetailsCard
-                  // showProfileDetails={showProfileDetails}
-                  setShowProfileDetails={setShowProfileDetails}
-                />
-              )}
+                {showProfileDetails && (
+                  <ProfileDetailsCard
+                    setShowProfileDetails={setShowProfileDetails}
+                  />
+                )}
               </div>
             </div>
           ) : (
@@ -140,7 +135,7 @@ export default function Profile() {
                       width="300px"
                     />
                   )}
-                  <hr/>
+                  <hr />
                   <div className="rest-btns">
                     {isBookmarked(_id) ? (
                       <span

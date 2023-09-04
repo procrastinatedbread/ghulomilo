@@ -2,15 +2,16 @@
   display: flex;
   justify-content: center;
   margin-top: 4rem;
+  font-size: 1.5rem;
 }
 
 .auth-container {
   display: flex;
   flex-direction: column;
-  box-shadow: 0px 7px 29px 0px rgba(100, 100, 111, 0.2);
+  box-shadow: 0rem 0.7rem 2.9rem 0rem rgba(100, 100, 111, 0.2);
 
   justify-content: center;
-  padding-left: 7rem;
+  padding: 5rem 15rem;
   color: #ffffff;
   background-color: rgb(160, 132, 232);
   box-shadow: 1rem 1rem 1rem 0rem burlywood;
@@ -19,7 +20,7 @@
 .signUp-container {
   display: flex;
   flex-direction: column;
-  box-shadow: 0px 7px 29px 0px rgba(100, 100, 111, 0.2);
+  box-shadow: 0rem 0.7rem 2.9rem 0rem rgba(100, 100, 111, 0.2);
 
   justify-content: center;
   padding-left: 13rem;
@@ -38,11 +39,12 @@
   padding-left: 1.3rem;
 }
 .signUp-main {
-  width: 40%;
+  width: 40rem;
+  font-size: 1.5rem;
   /* display: flex; */
   justify-content: center;
-  margin-top: 4rem;
-  margin-left: 16rem;
+
+  margin: 20rem auto;
 }
 .signUp-heading {
   padding-left: 2.3rem;
@@ -50,7 +52,7 @@
 .details {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 15rem;
   gap: 2rem;
   align-items: center;
 }
@@ -72,12 +74,12 @@
 }
 
 #login-btn {
-  margin-bottom: 12px;
+  margin-bottom: 1.2rem;
   width: 15rem;
 }
 
 .account-btn {
-  margin-bottom: 12px;
+  margin-bottom: 1.2rem;
   width: 15rem;
   margin-top: 2rem;
 }

@@ -4,19 +4,20 @@
 }
 .suggestion-container {
   border: none;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
   text-align: center;
   margin-right: 1rem;
   color: #ffffff;
   background-color: rgb(160, 132, 232);
   box-shadow: 1rem 1rem 1rem 0rem burlywood;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 1.5rem;
 }
 .profile-pic {
-  width: 50px;
+  width: 5rem;
   border-radius: 50%;
-  height: 40px;
-  margin-top: 20px;
+  height: 4rem;
+  margin-top: 2rem;
   position: relative;
 }
 /* side-bar */
@@ -35,10 +36,8 @@
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
 .side-bar-content {
-  /* margin-right:16rem; */
-  /* margin-left:4rem; */
-  font-size: 1.5rem;
-  margin-top: 10%;
+  font-size: 2.5rem;
+  margin-top: 3rem;
 }
 .side-bar-link {
   text-decoration: none;
@@ -46,16 +45,16 @@
 }
 
 .logout-btn {
-  width: 55%;
+  width: 20rem;
   border: none;
   background-color: white;
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 .icon {
-  margin-right: 10px;
+  margin-right: 1rem;
 }
 .sign-out-icon {
-  margin-right: 12px;
+  margin-right: 1.2rem;
 }
 input::placeholder {
   font: 1rem sans-serif;
@@ -71,11 +70,12 @@ input::placeholder {
 
 .heading {
   margin-left: 2rem;
+  font-size: 3.5rem;
 }
 .search-container {
   display: flex;
-  border: 2px solid;
-  width: 20%;
+  border: 0.2rem solid;
+  width: 30rem;
   border-radius: 0.7rem;
   background-color: white;
   padding: 0.5rem;
@@ -86,16 +86,20 @@ input::placeholder {
   outline: none;
   padding-left: 1rem;
 }
+.search-bar::placeholder {
+  font-size: 1.5rem;
+}
 
 .search-modal-main {
   position: absolute;
-  top: 7%;
+  top: 7rem;
   width: auto;
   color: black;
   background-color: white;
   margin-left: 40rem;
-  border: 2px solid;
-  padding: 4px;
+  border: 0.2rem solid;
+  padding: 1rem 1rem;
+  font-size: 1.5rem;
 }
 
 .side-bar-link:hover {
